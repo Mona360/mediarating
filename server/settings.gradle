@@ -1,0 +1,9 @@
+rootProject.name = 'de.hatoka.bubbles'
+
+include "common"
+include "user"
+include "oidc"
+include "bubble"
+include "human"
+include "oauth"
+include "service"

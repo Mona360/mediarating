@@ -1,0 +1,18 @@
+version: "3"
+services:
+  icm-mssql-22:
+    image: "intershophub/mssql-intershop:2022-latest"
+    container_name: mssql-dbs
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA:  Y
+      SA_PASSWORD:  "Mona00secret"
+      MSSQL_PID:    Developer
+      RECREATEDB:   "false"
+      ICM_DB_NAME:  "ratingdb"
+      RECREATEUSER: "false"
+      ICM_DB_USER:  "rating"
+      ICM_DB_PASSWORD: "Mona00secret"
+    volumes:
+      - ../mssql-dbs:/var/opt/mssql/data
