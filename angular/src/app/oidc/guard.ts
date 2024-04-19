@@ -14,7 +14,7 @@ import { OIDCState, selectAccessToken, rememberRouteBeforeLogin } from 'src/app/
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  isLoggedIn : boolean = false;
+  isLoggedIn : boolean = true;
   constructor(
     private router: Router,
     private readonly oidcStore: Store<OIDCState>,
