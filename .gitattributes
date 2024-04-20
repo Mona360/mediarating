@@ -7,6 +7,10 @@
 *.properties text
 *.java text
 *.xml text
+*.yml text
+*.yaml text
+*.ts text
+*.md text
 
 # always linux
 gradlew text eol=lf
