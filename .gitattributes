@@ -11,6 +11,8 @@
 *.yaml text
 *.ts text
 *.md text
+*.css text
+*.sass text
 
 # always linux
 gradlew text eol=lf
