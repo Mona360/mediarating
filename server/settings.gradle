@@ -1,4 +1,4 @@
-rootProject.name = 'de.hatoka.bubbles'
+rootProject.name = 'de.hatoka.mediarating'
 
 include "common"
 include "user"
