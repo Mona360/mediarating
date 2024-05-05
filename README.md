@@ -1,3 +1,19 @@
+# Build Images
+The application can run locally and in docker.
+Build docker images for both application.
+
+## Server Image
+<pre>
+cd server
+gradlew buildImage
+</pre>
+
+## Angular App Image
+<pre>
+cd angular
+docker build . --tag "local/hatoka/mediarating-app:latest"
+</pre>
+
 # Starten
 * docker compose -f docker-compose-mssql-2022.yml up -d
 * docker compose -f docker-compose-service.yml up
