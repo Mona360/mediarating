@@ -21,9 +21,23 @@ public class IdentityProviderConfiguration implements WebMvcConfigurer
 {
     @Value("${oidc.identityprovider.authenticationToken}")
     private String oidcAuthenticationToken;
+    @Value("${oidc.identityprovider.environment}")
+    private String environment;
+    @Value("${oidc.identityprovider.fakeUserId}")
+    private String fakeUserId;
 
     public String getOidcAuthenticationToken()
     {
         return oidcAuthenticationToken;
+    }
+
+    public String getFakeUserId()
+    {
+        return fakeUserId;
+    }
+
+    public boolean isDevelopmentEnvironment()
+    {
+        return "development".equals(environment);
     }
 }

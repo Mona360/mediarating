@@ -37,13 +37,15 @@ docker {
 
 task prepareDockerFile(type: Dockerfile) {
     group = 'Docker'
-    description "Preares the Dockerfile."
+    description "Prepares the Dockerfile."
 
     destFile = new File(dockerDir, 'Dockerfile')
     from 'eclipse-temurin:17.0.4.1_1-jre'
 
     //@deprecated
     environmentVariable "SPRING_PROFILES_ACTIVE", "production"
+    environmentVariable "OIDC_IDENTITY_PROVIDER_ENVIRONMENT", "production"
+    environmentVariable "OIDC_IDENTITY_PROVIDER_FAKE_USER_ID", "developer"
 
     copyFile "libs/service-${version}.jar", '/app/app.jar'
     exposePort 7090

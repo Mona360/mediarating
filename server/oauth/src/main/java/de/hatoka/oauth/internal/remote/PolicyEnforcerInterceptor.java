@@ -41,6 +41,10 @@ public class PolicyEnforcerInterceptor implements HandlerInterceptor
         {
             return true;
         }
+        if (oidcConfig.isDevelopmentEnvironment())
+        {
+            return true;
+        }
         URI uri = URI.create(request.getRequestURI());
         if (uri.getPath().startsWith("/actuator"))
         {

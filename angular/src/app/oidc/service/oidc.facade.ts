@@ -187,6 +187,10 @@ export class OIDCFacade {
 
   public tryToGetAccessToken(): void
   {
+    if (!environment.production)
+      {
+        return;
+      }
     if (this.allOIDCProviders.length == 0)
     {
       this.loadIdentityProviders();

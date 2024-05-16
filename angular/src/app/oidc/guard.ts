@@ -8,17 +8,22 @@ import {
 } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { OIDCState, selectAccessToken, rememberRouteBeforeLogin } from 'src/app/oidc/store';
+import { OIDCState, selectAccessToken, rememberRouteBeforeLogin, defineUser } from 'src/app/oidc/store';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  isLoggedIn : boolean = true;
+  // user must login in production but not on develop
+  isLoggedIn : boolean = environment.production ? false : true;
   constructor(
     private router: Router,
     private readonly oidcStore: Store<OIDCState>,
   ) {
+    if (!environment.production) {
+        this.oidcStore.dispatch(defineUser({ user : environment.fakeUserID }));
+    }
     this.oidcStore.select(selectAccessToken).subscribe((accessToken) => {
       this.isLoggedIn = true; // accessToken !== undefined;
     });
