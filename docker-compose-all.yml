@@ -1,8 +1,8 @@
 version: "3"
 services:
   service:
-    hostname: hatoka-bubbles-service
-    image: "local/hatoka/bubbles-service:latest"
+    hostname: hatoka-mediarating-service
+    image: "local/hatoka/mediarating-service:latest"
     ports:
       - "5005:7090"
       - "8090:8090"
@@ -10,8 +10,8 @@ services:
     env_file:
       - ".env"
   app:
-    hostname: hatoka-bubbles-app
-    image: "local/hatoka/bubbles-app:latest"
+    hostname: hatoka-mediarating-app
+    image: "local/hatoka/mediarating-app:latest"
     ports:
       - "4200:80"
     volumes:
